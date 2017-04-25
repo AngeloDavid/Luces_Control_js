@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <style type="text/css">
+    /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 30%;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {display:none;}
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  h1{
+    position: absolute;
+  }
+  body {
+  background-color: #09F;
+  color: #FFF;
+}
+#contenedor {
+  width:200px;
+    height:200px;
+}
+.loader:before,
+.loader:after,
+.loader {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  margin: 8em auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation-delay: 0.16s;
+  animation-delay: 0.16s;
+}
+.loader:before {
+  left: -3.5em;
+}
+.loader:after {
+  left: 3.5em;
+  -webkit-animation-delay: 0.32s;
+  animation-delay: 0.32s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em #ffffff;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0 #FFF;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em #ffffff;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0 #FFF;
+  }
+}
+
+  </style> 
+  <script type="text/javascript">
+    var ip="192.168.1.175";
+    var estado;
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      var est;
+      var mss="<div id='contenedor'><div class='loader' id='loader'>Loading...</div></div>";
+      var ms =document.getElementById("mserror").innerHTML=mss;
+      xhttp.onreadystatechange = function() {        
+        if (this.readyState == 4 && this.status == 200) {
+              var ms="<label class='switch'>";
+              ms+="<input id='swt' type='checkbox' onchange='cambiar()'>";
+              ms+="<div class='slider round'></div><br><br></label>";
+              ms+="<label class='switch'>";
+              ms+="<input id='swtauto' type='checkbox' onchange='cambiarAuto()' disabled>";
+              ms+="<div class='slider round'></div><br><br></label>";
+              ms+="<br><br><iframe id='ifr' sandbox='allow-same-origin allow-top-navigation allow-forms allow-scripts' style='border-style: none;' scrolling='no'></iframe>";
+              var mss =document.getElementById("mserror").innerHTML=ms;
+              est=this.responseText;            
+              compEstadoif(est);                         
+            }
+        if (this.readyState == 4 && this.status == 0) {                  
+            var mss="<h1>Oups, Conección defectuosa </h1><br><br>";
+            mss+="<p>Por favor, Compruebe su conección con el router o conección eléctrica</p>"
+            mss+="<input type='button' id='act' onclick='loadDoc()' value='Recargar' >"
+            mss+= "<a href='luces.html'>ver luces</a>"
+            var ms =document.getElementById("mserror").innerHTML=mss;     
+        }
+      };
+
+        xhttp.open("GET", "http://192.168.1.175/status", true);
+        xhttp.send();              
+    }
+    function compEstadoif(est){       
+      if(est==0){
+        checkedEstado(false);
+        autoEstado(false,true);
+      }else
+      if(est==1){
+        checkedEstado(true);
+        autoEstado(false,false);          
+        llenariframe("http://"+ip+"","500px","70%");
+      }else{
+        checkedEstado(true);
+        autoEstado(true,false);          
+      }
+    }
+    function checkedEstado(bool1){
+      var swt =document.getElementById("swt");
+        swt.checked = bool1;
+    }
+    function autoEstado(bool2,bool3){        
+        var swtauto =document.getElementById("swtauto");
+        swtauto.checked = bool2;
+        swtauto.disabled = bool3;
+    }
+    
+    function llenariframe(srcifrm,heightf,widthf){
+      var ifrm =document.getElementById("ifr");
+      ifrm.setAttribute("src", srcifrm);
+      ifrm.setAttribute("height", heightf);
+      ifrm.setAttribute("width", widthf);  
+    }
+    function cambiar()
+    {     
+      var sw = document.getElementById("swt").checked;
+      if(sw){
+        if ("WebSocket" in window)
+          {
+            var ws1 = new WebSocket("ws://"+ip+"/on");           
+            ws1.onclose = function(){ };
+            var ws = new WebSocket("ws://"+ip);
+            ws.onopen = function () { };
+            ws.onclose = function(){};          
+            llenariframe("http://"+ip+"","500px","70%");
+            autoEstado(false,false);   
+          } 
+      }else{
+        if ("WebSocket" in window)
+          {
+            var ws = new WebSocket("ws://"+ip+"/off");
+            ws.onmessage = function (evt){ };
+            ws.onclose = function(evt){ console.log(evt);};
+            llenariframe(" ","0px","0px");
+            autoEstado(false,true);
+          }
+      }
+    }
+    function cambiarAuto()
+    {
+      var sw = document.getElementById("swtauto").checked;
+      if(sw){        
+        if ("WebSocket" in window)
+          {
+            var ws = new WebSocket("ws://"+ip+"/auto");            
+            ws.onclose = function(evt){console.log(evt);};
+            llenariframe(" ","0px","0px");
+          }    
+      }else{
+        console.log("auto off")
+        if ("WebSocket" in window)
+          {
+            var ws1 = new WebSocket("ws://"+ip+"/off");           
+            ws1.onclose = function(){ };
+            var ws2 = new WebSocket("ws://"+ip+"/on");           
+            ws2.onclose = function(){ };
+            var ws3 = new WebSocket("ws://"+ip+"/");
+            ws3.onclose = function(){ };
+            llenariframe("http://"+ip+"/","500px","70%");  
+          } 
+      } 
+
+    }
+  </script>
+   </head>
+   <body onload="loadDoc()">
+   <div id="mserror"> 
+ 
+   </div>
+   </body>
+</html>
