@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+   <meta charset="UTF-8">
+   <title>power key</title>
+   <style type="text/css">
+    
+     /*-----------CSS BOTONES POWER LIGHTS---------*/
+      .power-container {
+            margin-top:3%;
+            margin-bottom:2%;
+            margin-left:33%;
+            position:relative;
+	         display:inline-block;
+       }
+       #power0, #power1, #power2, #power3, #power4, #power5{
+            display : none;
+       }
+       
+       label{
+            position:relative;
+	    display:inline-block;
+	    width:50px;
+	    height:50px;
+	    border-radius:50%;
+	    margin:auto;
+	    border:2px solid #FF5D44;
+	    background:-webkit-radial-gradient(center,ellipse cover,#fff 0%,#fff 80%,#fff 100%);
+            background:-webkit-radial-gradient(center,ellipse cover,#fff 0%,#fff 80%,#fff 100%);
+	    background:-webkit-radial-gradient(center,ellipse cover,#fff 0%,#fff 80%,#fff 100%);		
+            box-shadow:inset 0 -5px 10px 0 #d0d5eb,inset 0 5px 10px 0 #FFF,0 0 0 1px #FF5D44;
+	    cursor: pointer;
+	    text-align: center;
+	    font-size: 40px;
+	    color: #fff;
+       }
+		
+       label:after , label:before {
+	    display : inline-block;
+	    content : "";
+	    position: absolute;
+       }
+       
+       label:before {
+	    width  : 150%;
+	    height : 150%;
+	    border-radius : 50%;
+            background: -webkit-linear-gradient(top, #fff 0%, #fff 30%, #ddd 82%,#fff 100%);
+            background: -webkit-linear-gradient(top, #fff 0%, #fff 30%, #ddd 82%,#fff 100%);
+            background: -webkit-linear-gradient(top, #fff 0%, #fff 30%, #ddd 82%,#fff 100%);
+            top     : -25%;
+	    left    : -25%;
+	    z-index : -2;
+       }
+       label:after {
+	    width  : 130%;
+	    height : 130%;
+	    border-radius : 50%;
+	    background : #fff;
+	    top  : -15%;
+	    left : -15%;
+	    z-index : -1;
+	    box-shadow : 0 -2px 5px 0px #fefe , 0 2px 5px 0 #ccc;
+            background: rgb(210,215,237);
+            background:-webkit-linear-gradient(top,#ddd 0%,#ddd 30%,#eee 82%,#efefef 100%);
+            background:-moz-linear-gradient(top,#ddd 0%,#ddd 30%,#eee 82%,#efefef 100%);
+            background: linear-gradient(top,  #ddd 0%, #ddd 30%, #eee 82%,#efefef 100%);
+       }
+		
+       .icon-off {
+	    position : absolute;
+	    top      : 0;
+	    left     : 0;
+	    right    : 0;
+	    bottom   : 0;
+	    margin   : auto;
+	    width    : 60%;
+	    height   : 60%;
+	    border-radius : 50%;
+	    background : #FF5D44;
+	    box-shadow : inset 0 0 4px 0 #F23315;
+	    transition : all .1s ease-in-out;
+       }
+       
+       .icon-off:after {
+	    display  : inline-block;
+	    content  : '';
+	    position : absolute;
+	    top      : 0; bottom : 0;
+	    left     : 0; right  : 0;
+	    margin   : auto;
+	    width    : 65%;
+	    height   : 65%;
+	    border-radius : 50%;
+	    background    : #eee;
+            box-shadow : 0 0 3px 0 #F23315;
+	    z-index    : 2;
+       }
+	    .icon-off:before {
+	    display  : inline-block;
+	    content  : '';
+	    position : absolute;
+	    top      : -5px;
+	    left     : 0; right  : 0;
+	    margin   : auto;
+	    width    : 20%;
+	    height   : 70%;
+	    background : #FF5D44;
+	    box-shadow : inherit;
+	    border-radius : 10px;
+	    border-style  : solid;
+            border-width  : 0 3px 0;
+	    border-color  : #EEE;
+	    z-index    : 3;
+	    transition : all .1s ease-in-out;
+       }
+       
+       #power0:checked + label, #power1:checked + label, #power2:checked + label, #power3:checked + label,#power4:checked + label, #power5:checked + label {
+	    background :-webkit-radial-gradient(center , ellipse cover, #fff 0% , #EEE 80% , #fff 100%);
+	    background :         radial-gradient(center , ellipse cover, #fff 0% , #EEE 80% , #fff 100%);
+	    background :         radial-gradient(center , ellipse cover, #fff 0% , #EEE 80% , #fff 100%);
+            border     : 2px solid #8CE196;
+	    box-shadow:inset 0 -5px 10px 0 #fff,inset 0 5px 10px 0 #aaa,0 0 0 1px #8CE196;
+	    transition : all .1s linear;
+       }
+		
+       #power0:checked + label .light,#power1:checked + label .light, #power2:checked + label .light,#power3:checked + label .light, #power4:checked + label .light,#power5:checked + label .light{ 
+            background : -webkit-radial-gradient(center , ellipse cover, #fff 0% , #f88 60% , #f00 100%);
+            background : -moz-radial-gradient(center , ellipse cover, #fcc 0% , #f88 60% , #f00 100%);
+	    background : radial-gradient(center , ellipse cover, #fcc 0% , #f88 60% , #f00 100%);
+			box-shadow : inset 0 1px 1px 0 #555 ,inset 0 -1px 1px 0 #555 , 0 0 5px 0 #f55;
+			transition : all .1s linear;
+		}
+		#power0:checked + label .icon-off,#power1:checked + label .icon-off,#power2:checked + label .icon-off,#power3:checked + label .icon-off, #power4:checked + label .icon-off,#power5:checked + label .icon-off {
+			background : transparent;
+			box-shadow : inset 0 0 5px 0 #8CE196;
+            border-color : #8CE196;
+			transition : all .1s linear;
+		} 
+		#power0:checked + label .icon-off:after, #power1:checked + label .icon-off:after,#power2:checked + label .icon-off:after, #power3:checked + label .icon-off:after,#power4:checked + label .icon-off:after, #power5:checked + label .icon-off:after{
+			background : inherit;
+			box-shadow : 0 0 0px 0 #8CE196;
+            border-color : #8CE196;
+		} 
+		#power0:checked + label .icon-off:before, #power1:checked + label .icon-off:before,#power2:checked + label .icon-off:before, #power3:checked + label .icon-off:before,#power4:checked + label .icon-off:before, #power5:checked + label .icon-off:before {
+			background   : #8CE196;
+			border-color : #dfdfdf;
+			box-shadow   : inherit;
+			transition : all .1s linear;
+    }
+     
+    h1 {
+        position: relative;
+        display: block;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 0%;
+        margin-right: 0;
+        color: #fff;
+        font: small-caption;
+        font-size: 135%;
+        text-align: center;
+        
+    }
+    h2 {
+        position: relative;
+        display: block;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 0%;
+        margin-right: 0;
+        color: #fff;
+        font: small-caption;
+        font-size: 130%;
+        text-align: center;
+        
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+       .power-container {
+    		
+            margin-left:30%;
+       }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+     .power-container {
+    		
+            margin-left:28%;
+       } 
+    }
+
+    @media (min-width: 630px) and (max-width: 767px) {
+      
+     .power-container {
+    		
+            margin-left:26%;
+       }
+    }
+    @media (min-width: 451px) and (max-width: 630px) {
+      
+     .power-container {
+    		
+            margin-left:24%;
+       }
+    }
+    @media (min-width: 390px) and (max-width: 450px) {
+      
+     .power-container {
+    		
+            margin-left:22%;
+       }
+    }
+    @media (min-width: 329px) and (max-width: 389px) {
+      
+     .power-container {
+    		
+            margin-left:20%;
+       }
+    }
+    @media (min-width: 200px) and (max-width: 328px) {
+      
+     .power-container {
+    		
+            margin-left:15%;
+       }
+    }
+      body {
+      background-color: #09F;
+      color: #FFF;
+    }
+    #contenedor {
+      width:200px;
+        height:200px;
+    }
+    .loader:before,
+    .loader:after,
+    .loader {
+      border-radius: 50%;
+      width: 2.5em;
+      height: 2.5em;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation: load7 1.8s infinite ease-in-out;
+      animation: load7 1.8s infinite ease-in-out;
+    }
+    .loader {
+      margin: 8em auto;
+      font-size: 10px;
+      position: relative;
+      text-indent: -9999em;
+      -webkit-animation-delay: 0.16s;
+      animation-delay: 0.16s;
+    }
+    .loader:before {
+      left: -3.5em;
+    }
+    .loader:after {
+      left: 3.5em;
+      -webkit-animation-delay: 0.32s;
+      animation-delay: 0.32s;
+    }
+    .loader:before,
+    .loader:after {
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+    @-webkit-keyframes load7 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 2.5em 0 -1.3em #ffffff;
+      }
+      40% {
+        box-shadow: 0 2.5em 0 0 #FFF;
+      }
+    }
+    @keyframes load7 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 2.5em 0 -1.3em #ffffff;
+      }
+      40% {
+        box-shadow: 0 2.5em 0 0 #FFF;
+      }
+    }
+
+ 	</style>
+  <!--------------------SCRIPT WEB SOCKET------------------------>
+   <script type="text/javascript">
+      var ips=["192.168.1.105"];      
+      var idDisp=0;
+      var title=['Ext-Frontal','Ext-Lateral','Ref-Frontal','Ref-Lateral','Luz-1','Luz-2'];
+
+      function loadDoc() {                
+       compEstado(0);
+       /* 
+       compest(0);
+        var txt="";
+        var ipid=0;
+        for (i =0; i < 1 ; i++) {                               
+            txt+=btnCrear(idDisp,title[idDisp],false,139,ipid);
+            idDisp++;               
+        } 
+        document.getElementById("demo").innerHTML=txt;*/
+      }
+
+      function compest(ipid){
+        var ip =ips[ipid]; 
+        if ("WebSocket" in window){
+         // var ws1 = new WebSocket("ws://"+ip+":3480/data_request?id=status&output_format=xml&DeviceNum=139");
+           var ws1 = new WebSocket("ws://192.168.1.196/status");           
+            ws1.onopen = function(e) {  
+              alert("Socket is connected"+e);  
+              ws1.onmessage(e);         
+            };  
+            //ws1.onopen();
+            ws1.onmessage =function(event){
+              console.log("Socket is message"+event);                
+            };                       
+                         
+            ws1.onclose = function(e){console.log(e);ws1.onmessage(e); };          
+            
+          }
+      }      
+      function compEstado(ipid) {        
+        var xhttp = new XMLHttpRequest();
+        var ip =ips[ipid];    
+        console.log("hola");     
+        xhttp.onreadystatechange = function() {          
+          var txt="";
+          if (this.readyState == 4 && this.status == 200) {      
+              var jsonResponse = xmlhttp.responseText;
+              var objeto_json = JSON.parse(jsonResponse);
+              console.log(objeto_json);
+                /*xmlDoc = this.responseXML; 
+                x=xmlDoc.getElementsByTagName("state");                   
+                for (var i = x.length - 1; i >= 0; i--) {
+                  console.log(x[i]);
+                  document.getElementById("demo").innerTxt=x[i];
+                }*/                
+                
+                /*txt+=btnCrear(idDisp,title[idDisp],x[0].getAttribute("value")?false:true,139,ipid);
+                document.getElementById("demo").innerHTML=txt;
+                idDisp++;      
+                console.log(x[0].getAttribute("value")?false:true);         */
+                /*for (i =0; i < x.length ; i++) {                               
+                  txt+=btnCrear(idDisp,title[idDisp],false,139,ipid);
+                  idDisp++;               
+                }                 
+                if(ipid==1){                  
+                  var txtante=document.getElementById("demo").innerHTML;
+                  document.getElementById("demo").innerHTML=txtante+txt;
+                }else{
+                  compEstado(1);
+                  document.getElementById("demo").innerHTML=txt;
+                }*/                                                
+              }
+          if (this.readyState == 4 && this.status == 0) {   
+              var mss="<h1>Oups, Conexión defectuosa </h1><br><br>";
+              mss+="<p>Por favor, Compruebe su conección con el router o conexión eléctrica</p>"
+              mss+="<input type='button' id='act' onclick='loadDoc()' value='Recargar' >"
+              mss+="<a href='luces.html'>ver luces</a>"
+              document.getElementById("demo").innerHTML=mss;              
+          }
+        };  
+        
+        xhttp.open("GET", "http://"+ip+":3480/data_request?id=status&output_format=json&DeviceNum=139", true);
+        //xhttp.open("GET", "file:///D:/wasihome/data_request.xml", true);
+        //xhttp.header('Access-Control-Allow-Origin: *');
+       // xhttp.setAllowedOrigins("*")
+        xhttp.send();                        
+        console.log("hola");
+      }
+      function btnCrear(id,labeltxt,checkedbool,idEqu,ipid) {
+          var btn="";          
+          var onCambiar="cambiar('power"+id+"',"+idEqu+","+ipid+");";          
+          var checkedCompr = checkedbool? 'checked':'';
+          
+          btn+="<div class='power-container'>";
+          btn+='<input type="checkbox" id="power'+id+'" name="power'+id+'" onchange="'+onCambiar+'"'+checkedCompr+' />';
+          btn+="<label for='power"+id+"' class='power"+id+"'>";
+          btn+="<span class='icon-off'></span><span class='light'></span></label>";
+          btn+="<h2>"+labeltxt+"</h2></div>";
+          return btn;
+      }
+      function cambiar(idbutton,id,ipid){          
+          var ip =ips[ipid];
+          var sw = document.getElementById(idbutton).checked;
+          var enc= sw?1:0;
+          if ("WebSocket" in window){
+            var ws1 = new WebSocket("ws://"+ip+":3480/data_request?id=lu_action&output_format=xml&DeviceNum="+id+"&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue="+enc);           
+            ws1.onclose = function(){ };                                
+          }
+          
+      }      
+   </script>
+</head>
+<body onload="loadDoc()">
+  <h1>Luces Garage</h1>  
+    <div id="demo">
+      <div id='contenedor'>
+        <div class='loader' id='loader'>Loading...</div>
+      </div>
+    </div>
+
+</body>
+</html>

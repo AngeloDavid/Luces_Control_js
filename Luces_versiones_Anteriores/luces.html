@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+   <meta charset="UTF-8">
+   <title>power key</title>
+   <style type="text/css">
+      body{
+        background-color: blue;      }
+     /*-----------CSS BOTONES POWER LIGHTS---------*/
+      .power-container {
+            margin-top:3%;
+            margin-bottom:2%;
+            margin-left:33%;
+            position:relative;
+	    display:inline-block;
+       }
+       #power0, #power1, #power2, #power3, #power4{
+            display : none;
+       }
+       
+       label{
+            position:relative;
+      	    display:inline-block;
+      	    width:50px;
+      	    height:50px;
+      	    border-radius:50%;
+      	    margin:auto;
+      	    border:2px solid #FF5D44;
+      	    background:-webkit-radial-gradient(center,ellipse cover,#fff 0%,#fff 80%,#fff 100%);
+                  background:-webkit-radial-gradient(center,ellipse cover,#fff 0%,#fff 80%,#fff 100%);
+      	    background:-webkit-radial-gradient(center,ellipse cover,#fff 0%,#fff 80%,#fff 100%);		
+                  box-shadow:inset 0 -5px 10px 0 #d0d5eb,inset 0 5px 10px 0 #FFF,0 0 0 1px #FF5D44;
+      	    cursor: pointer;
+      	    text-align: center;
+      	    font-size: 40px;
+      	    color: #fff;
+       }
+		
+       label:after , label:before {
+    	    display : inline-block;
+    	    content : "";
+    	    position: absolute;
+       }
+       
+       label:before {
+    	    width  : 150%;
+    	    height : 150%;
+    	    border-radius : 50%;
+                background: -webkit-linear-gradient(top, #fff 0%, #fff 30%, #ddd 82%,#fff 100%);
+                background: -webkit-linear-gradient(top, #fff 0%, #fff 30%, #ddd 82%,#fff 100%);
+                background: -webkit-linear-gradient(top, #fff 0%, #fff 30%, #ddd 82%,#fff 100%);
+                top     : -25%;
+    	    left    : -25%;
+    	    z-index : -2;
+       }
+       label:after {
+    	    width  : 130%;
+    	    height : 130%;
+    	    border-radius : 50%;
+    	    background : #fff;
+    	    top  : -15%;
+    	    left : -15%;
+    	    z-index : -1;
+    	    box-shadow : 0 -2px 5px 0px #fefe , 0 2px 5px 0 #ccc;
+                background: rgb(210,215,237);
+                background:-webkit-linear-gradient(top,#ddd 0%,#ddd 30%,#eee 82%,#efefef 100%);
+                background:-moz-linear-gradient(top,#ddd 0%,#ddd 30%,#eee 82%,#efefef 100%);
+                background: linear-gradient(top,  #ddd 0%, #ddd 30%, #eee 82%,#efefef 100%);
+       }
+		
+       .icon-off {
+    	    position : absolute;
+    	    top      : 0;
+    	    left     : 0;
+    	    right    : 0;
+    	    bottom   : 0;
+    	    margin   : auto;
+    	    width    : 60%;
+    	    height   : 60%;
+    	    border-radius : 50%;
+    	    background : #FF5D44;
+    	    box-shadow : inset 0 0 4px 0 #F23315;
+    	    transition : all .1s ease-in-out;
+       }
+       
+       .icon-off:after {
+    	    display  : inline-block;
+    	    content  : '';
+    	    position : absolute;
+    	    top      : 0; bottom : 0;
+    	    left     : 0; right  : 0;
+    	    margin   : auto;
+    	    width    : 65%;
+    	    height   : 65%;
+    	    border-radius : 50%;
+    	    background    : #eee;
+                box-shadow : 0 0 3px 0 #F23315;
+    	    z-index    : 2;
+       }
+	    .icon-off:before {
+    	    display  : inline-block;
+    	    content  : '';
+    	    position : absolute;
+    	    top      : -5px;
+    	    left     : 0; right  : 0;
+    	    margin   : auto;
+    	    width    : 20%;
+    	    height   : 70%;
+    	    background : #FF5D44;
+    	    box-shadow : inherit;
+    	    border-radius : 10px;
+    	    border-style  : solid;
+                border-width  : 0 3px 0;
+    	    border-color  : #EEE;
+    	    z-index    : 3;
+    	    transition : all .1s ease-in-out;
+       }
+       
+       #power0:checked + label, #power1:checked + label, #power2:checked + label, #power3:checked + label,#power4:checked + label{
+    	    background :-webkit-radial-gradient(center , ellipse cover, #fff 0% , #EEE 80% , #fff 100%);
+    	    background :         radial-gradient(center , ellipse cover, #fff 0% , #EEE 80% , #fff 100%);
+    	    background :         radial-gradient(center , ellipse cover, #fff 0% , #EEE 80% , #fff 100%);
+                border     : 2px solid #8CE196;
+    	    box-shadow:inset 0 -5px 10px 0 #fff,inset 0 5px 10px 0 #aaa,0 0 0 1px #8CE196;
+    	    transition : all .1s linear;
+       }
+		
+       #power0:checked + label .light,#power1:checked + label .light, #power2:checked + label .light,#power3:checked + label .light, #power4:checked + label .light{ 
+            background : -webkit-radial-gradient(center , ellipse cover, #fff 0% , #f88 60% , #f00 100%);
+            background : -moz-radial-gradient(center , ellipse cover, #fcc 0% , #f88 60% , #f00 100%);
+      	    background : radial-gradient(center , ellipse cover, #fcc 0% , #f88 60% , #f00 100%);
+      			box-shadow : inset 0 1px 1px 0 #555 ,inset 0 -1px 1px 0 #555 , 0 0 5px 0 #f55;
+      			transition : all .1s linear;
+		}
+		#power0:checked + label .icon-off,#power1:checked + label .icon-off,#power2:checked + label .icon-off,#power3:checked + label .icon-off, #power4:checked + label .icon-off,#power5:checked + label .icon-off {
+    			background : transparent;
+    			box-shadow : inset 0 0 5px 0 #8CE196;
+                border-color : #8CE196;
+    			transition : all .1s linear;
+		} 
+		#power0:checked + label .icon-off:after, #power1:checked + label .icon-off:after,#power2:checked + label .icon-off:after, #power3:checked + label .icon-off:after,#power4:checked + label .icon-off:after, #power5:checked + label .icon-off:after{
+    			background : inherit;
+    			box-shadow : 0 0 0px 0 #8CE196;
+                border-color : #8CE196;
+		} 
+		#power0:checked + label .icon-off:before, #power1:checked + label .icon-off:before,#power2:checked + label .icon-off:before, #power3:checked + label .icon-off:before,#power4:checked + label .icon-off:before, #power5:checked + label .icon-off:before {
+  			background   : #8CE196;
+  			border-color : #dfdfdf;
+  			box-shadow   : inherit;
+  			transition : all .1s linear;
+    }
+ 
+    h1 {
+        position: relative;
+        display: block;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 0%;
+        margin-right: 0;
+        color: #fff;
+        font: small-caption;
+        font-size: 135%;
+        font-weight: bold;
+        text-align: center;
+        
+    }
+    h2 {
+        position: relative;
+        display: block;
+        margin-top: 15%;
+        margin-bottom: 2%;
+        margin-left: 0%;
+        margin-right: 0;
+        color: #fff;
+        font: small-caption;
+        font-size: 130%;
+        text-align: center;
+        
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+       .power-container {
+    		
+            margin-left:30%;
+       }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+     .power-container {
+    		
+            margin-left:28%;
+       } 
+    }
+
+    @media (min-width: 630px) and (max-width: 767px) {
+      
+     .power-container {
+    		
+            margin-left:26%;
+       }
+    }
+    @media (min-width: 451px) and (max-width: 630px) {
+      
+     .power-container {
+    		
+            margin-left:24%;
+       }
+    }
+    @media (min-width: 390px) and (max-width: 450px) {
+      
+     .power-container {
+    		
+            margin-left:22%;
+       }
+    }
+    @media (min-width: 329px) and (max-width: 389px) {
+      
+     .power-container {
+    		
+            margin-left:20%;
+       }
+    }
+    @media (min-width: 200px) and (max-width: 328px) {
+      
+     .power-container {
+    		
+            margin-left:15%;
+       }
+    }
+
+    #act{
+    background: -webkit-linear-gradient(top, #f4f1ee, #fff);
+  background: linear-gradient(top, #f4f1ee, #fff);
+  border-radius: 20px;
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+  float: center;
+  position: relative; 
+  height: 60%;
+  width: 30%;   
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  color: #D24444;
+  }
+    #act:hover{
+      background: -webkit-linear-gradient(top, #fff, #f4f1ee);
+      background: linear-gradient(top, #fff, #f4f1ee);
+      color:#0088cc;
+  }
+  #act:active{
+      background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+      background-image: linear-gradient(top, #efedec, #f7f4f4);
+      box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+  }
+   #mserror1 {
+    text-align: center;
+    margin-top: 20%;
+    color: #fff; 
+  }
+	</style>
+  <!--------------------SCRIPT WEB SOCKET------------------------>
+   <script type="text/javascript">
+      var ips=['192.168.100.101',
+               '192.168.100.102',
+               '192.168.100.103',
+               '192.168.100.104'];
+      var titles=['101','102','103','104'];
+      function compEstado(idbutton,ipid) {
+        var xhttp = new XMLHttpRequest();
+        var txt="";
+        var est;
+        var ipbutton =ips[ipid];
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {              
+              est=this.responseText;            
+              var swt =document.getElementById(idbutton);        
+              swt.checked = est==0?false:true;             
+              //txt+=btnCrear(titles[ipid],est,ipid);
+            }
+        if (this.readyState == 4 && this.status == 0) {   
+            /*var swt =document.getElementById(idbutton);        
+            swt.disabled = false*/
+            //document.getElementById(idbutton)
+            var mss = "<div id='mserror1'>";              
+            mss+="<h1>Oups, Conexi&oacuten defectuosa </h1><br><br>";
+            mss+="<p>Por favor, Compruebe su conexi&oacuten con el router o conexi&oacuten el&eacutectrica</p>";
+            mss+="<input type='button' id='act' onclick='loadDoc()' value='Recargar' >";
+            mss+="</div>"
+            var ms =document.getElementById("mserror").innerHTML=mss;     
+        }
+        };
+        document.getElementById("demo").innerHTML+=txt;              
+          xhttp.open("GET", "http://"+ipbutton+"/status", true);
+          xhttp.send();              
+      }
+      function loadDoc(){       
+        var txt="<h1>Oficinas</h1>";
+        for (var i = 0; i <= ips.length - 1; i++) {          
+          txt+=btnCrear(titles[i],false,i);
+        }
+        document.getElementById("demo").innerHTML=txt;              
+      }
+      function btnCrear(labeltxt,checkedbool,id) {
+          var btn="";          
+          var onCambiar="cambiar('power"+id+"',"+id+");";          
+          var checkedCompr = checkedbool? 'checked':'';
+          
+          btn+="<div class='power-container'>";
+          btn+='<input type="checkbox" id="power'+id+'" name="power'+id+'" onchange="'+onCambiar+'"'+checkedCompr+' />';
+          btn+="<label for='power"+id+"' class='power"+id+"'>";
+          btn+="<span class='icon-off'></span><span class='light'></span></label>";
+          btn+="<h2>"+labeltxt+"</h2></div>";
+          return btn;
+      }
+      function cambiar(idbutton,ipid){
+          var ip =ips[ipid];
+          var sw = document.getElementById(idbutton).checked;
+          if(sw){
+                if ("WebSocket" in window){
+                    var ws1 = new WebSocket("ws://"+ip+"/?button1on");           
+                    ws1.onclose = function(){ };                             
+                }
+          }else{
+             if ("WebSocket" in window){
+               var ws = new WebSocket("ws://"+ip+"/?button1off");
+               ws.onclose = function(){ };
+             }
+          }
+         
+      }
+   </script>
+</head>
+<body onload="loadDoc()">
+    <div id="demo"></div>
+</body>
+</html>
