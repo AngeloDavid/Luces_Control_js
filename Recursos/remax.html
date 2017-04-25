@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>xreader</title>
+	<script src="http://kincrew.github.com/xReader/xReader.full.js"></script> 
+<script type="text/javascript"> 
+function cargar() {
+	/*xReader("http://192.168.1.105:3480/data_request?id=status&output_format=xml&DeviceNum=139", function(data) { 
+    console.log(data.content); 
+	})*/
+	/* tag : cat from flickr */
+	//var url = "http://192.168.1.105:3480/data_request?id=status&output_format=json&DeviceNum=139";
+	/*var url = "http://api.flickr.com/services/feeds/photos_public.gne?";
+	url += "tags=cat&tagmode=any&format=json";
+	xReader(url, function(data){ 
+	    var items = data.content.items; 
+	    var html = ""; 
+	    for (var i=0; items.length > i ;i++ ) { 
+	        html += "<div>" + items[i].description + "</div>"; 
+	    } 
+	    return html; 
+	},
+	{ 
+	    format : "json", // type
+	    target : document.getElementById("demo") // output target
+	})*/
+	xReader("http://200.124.227.251:3480/data_request?id=status&output_format=xml&DeviceNum=139", function(data){ 
+    console.log(data.content); 
+})
+}
+</script>
+</head>
+<body>
+<button onclick="cargar()"></button>
+<div id="demo"></div>
+</body>
+</html>

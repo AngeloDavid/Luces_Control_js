@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+h2 {
+    position: relative;
+    display: inline-block;
+    margin-top: 3.5%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 0;
+    color: #fff;
+    font: small-caption;
+    font-size: 130%;
+    text-align: center;
+}
+
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  margin-top: 2%;
+  margin-left: 80%;
+  margin-rigth: 2%;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FF5D44;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 50%;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #8CE196;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+  #contenedor {
+    	width:200px;
+    	height:200px;
+    	margin-top: 25%;
+   	margin-left: 42%;
+
+}
+    .loader {
+  font-size: 20px;
+  margin: 45% auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #ffffff, 2em -2em 0 0em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 0em #ffffff;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 0.2em #ffffff, 3em 0em 0 0em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 0em #ffffff, 3em 0em 0 0.2em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 0em #ffffff, 2em 2em 0 0.2em #ffffff, 0em 3em 0 0em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 0.2em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 0em #ffffff, -2em 2em 0 0.2em #ffffff, -3em 0em 0 0em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0.2em #ffffff, -2em -2em 0 0em #ffffff;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0em #ffffff, -2em -2em 0 0.2em #ffffff;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #ffffff, 2em -2em 0 0em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 0em #ffffff;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 0.2em #ffffff, 3em 0em 0 0em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 0em #ffffff, 3em 0em 0 0.2em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 0em #ffffff, 2em 2em 0 0.2em #ffffff, 0em 3em 0 0em #ffffff, -2em 2em 0 -0.5em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 0em #ffffff, 0em 3em 0 0.2em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 -0.5em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 0em #ffffff, -2em 2em 0 0.2em #ffffff, -3em 0em 0 0em #ffffff, -2em -2em 0 -0.5em #ffffff;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0.2em #ffffff, -2em -2em 0 0em #ffffff;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #ffffff, 2em -2em 0 -0.5em #ffffff, 3em 0em 0 -0.5em #ffffff, 2em 2em 0 -0.5em #ffffff, 0em 3em 0 -0.5em #ffffff, -2em 2em 0 0em #ffffff, -3em 0em 0 0em #ffffff, -2em -2em 0 0.2em #ffffff;
+  }
+}
+/* iframe responsive*/
+
+.embed-container {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow: hidden;
+}
+.embed-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 1366;
+}
+@media only screen and (max-width: 200px) {
+    h2 {
+        width: 100%;
+    }
+}
+@media only screen and (max-width : 1030px) {
+            .switch{
+                margin-left: 70%;
+            }
+        .embed-container iframe {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 1024px;
+                height: 500px;
+         }
+         #contenedor {
+    		margin-top: 25%;
+   		margin-left: 40%;
+
+ 	}
+}
+@media only screen and (max-width : 770px) {
+            .switch{
+                margin-left: 60%;
+            }
+        .embed-container iframe {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 768px;
+                height: 900px;
+         }
+         #contenedor {
+    		margin-top: 50%;
+   		margin-left: 35%;
+
+ 	}
+}
+@media only screen and (max-width : 414px) {
+            .switch{
+                margin-left: 35%;
+            }
+        .embed-container iframe {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 414px;
+                height: 736px;
+         }
+         #contenedor {
+    		margin-top: 50%;
+   		margin-left: 28%;
+
+ 	}
+}
+@media only screen and (max-width : 375px) {
+            .switch{
+                margin-left: 30%;
+            }
+         .embed-container iframe {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 375px;
+                height: 667px;
+         }
+         #contenedor {
+    		margin-top: 50%;
+   		margin-left: 25%;
+
+ 	}
+}
+@media only screen and (max-width : 350px) {
+            .switch{
+                margin-left: 25%;
+            }
+         .embed-container iframe {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 350px;
+                height: 568px;
+         }
+         #contenedor {
+    		margin-top: 50%;
+   		margin-left: 22%;
+
+ 	}
+}
+@media only screen and (max-width : 320px) {
+            .switch{
+                margin-left: 20%;
+            }
+        .embed-container iframe {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 320px;
+                height: 568px;
+         }
+         #contenedor {
+    		margin-top: 50%;
+   		margin-left: 20%;
+
+ 	}
+}
+
+
+
+
+/*----------- ON/OFF CSS -------------*/
+.h3ON{
+	position: relative;
+        display: inline-block;
+  	color: #fff;
+	font-size: 0.9em;
+  	margin-top: 15%;
+  	margin-left: 8%;
+}
+  .h3OFF{
+    position: absolute;
+    display: inline-block;
+    color: #fff;
+    font-size: 0.9em;
+    margin-top: 15%;
+    margin-left: 22.5%;
+    margin-right: 92%;
+  }
+ #act{
+    background: -webkit-linear-gradient(top, #f4f1ee, #fff);
+  background: linear-gradient(top, #f4f1ee, #fff);
+  border-radius: 20px;
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+  float: center;
+  position: relative; 
+  height: 60%;
+  width: 30%;   
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  color: #D24444;
+  }
+    #act:hover{
+      background: -webkit-linear-gradient(top, #fff, #f4f1ee);
+      background: linear-gradient(top, #fff, #f4f1ee);
+      color:#0088cc;
+  }
+  #act:active{
+      background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+      background-image: linear-gradient(top, #efedec, #f7f4f4);
+      box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+  }
+   #mserror1 {
+    text-align: center;
+    margin-top: 20%;
+    color: #fff; 
+  }
+</style>
+<script type="text/javascript">
+    var ip="192.168.0.197";
+    var estado;
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      var est;
+      var mss = "<div id='contenedor'><div class='loader' id='loader'>Loading...</div></div>";
+      document.getElementById("mserror").innerHTML=mss;
+
+      xhttp.onreadystatechange = function() {        
+        if (this.readyState == 4 && this.status == 200) {
+              var ms="<h2>Terraza Interna</h2>";
+              ms+="<label class='switch'>";
+              ms+="<input id='swt' type='checkbox' onchange='cambiar()'>";
+              ms+="<div class='slider round'>";
+              ms+="<h3 class = 'h3ON'>ON</h3>";
+              ms+="<h3 class = 'h3OFF'>OFF</h3>";
+              ms+="</div>";
+              ms+="</label>";
+              ms+="<br>";
+              ms+="<h2>Luz Automatico</h2>";
+              ms+="<label class='switch'>";
+              ms+="<input id='swtauto' type='checkbox' onchange='cambiarAuto()' disabled visible='false'>";
+              ms+="<div class='slider round'>";
+              ms+=" <h3 class = 'h3ON'>ON</h3>";
+              ms+="<h3 class = 'h3OFF'>OFF</h3>";
+              ms+="</div>";
+              ms+=" </label><hr style='width:90%;''>";
+              ms+="<h2>Escoja el color:</h2>";
+              ms+="<div class='embed-container'>";
+              ms+="<iframe id='ifr' sandbox='allow-same-origin allow-top-navigation allow-forms allow-scripts' style='border-style: none;' height='1366px' width='1366px' scrolling='no' frameborder='0' allowfullscreen></iframe>";
+             
+              var mss =document.getElementById("mserror").innerHTML=ms;
+              est=this.responseText;            
+              compEstadoif(est);                         
+            }
+        if (this.readyState == 4 && this.status == 0) {   
+            var mss = "<div id='mserror1'>";              
+            mss+="<h1>Oups, Conexi&oacuten defectuosa </h1><br><br>";
+            mss+="<p>Por favor, Compruebe su conexi&oacuten con el router o conexi&oacuten el&eacutectrica</p>";
+            mss+="<input type='button' id='act' onclick='loadDoc()' value='Recargar' >";
+            mss+="</div>"
+            var ms =document.getElementById("mserror").innerHTML=mss;     
+        }
+      };
+
+        xhttp.open("GET", "http://192.168.0.197/status", true);
+        xhttp.send();              
+    }
+    
+    function compEstadoif(est){       
+      if(est==0){
+        checkedEstado(false);
+        autoEstado(false,true);
+      }else
+      if(est==1){
+        checkedEstado(true);
+        autoEstado(false,false);          
+        llenariframe("http://"+ip);
+      }else{
+        checkedEstado(true);
+        autoEstado(true,false);          
+      }
+    }
+    function checkedEstado(bool1){
+      var swt =document.getElementById("swt");
+        swt.checked = bool1;
+    }
+    function autoEstado(bool2,bool3){        
+        var swtauto =document.getElementById("swtauto");
+        swtauto.checked = bool2;
+        swtauto.disabled = bool3;
+    }
+    
+    function llenariframe(srcifrm){
+      var ifrm =document.getElementById("ifr");
+      ifrm.setAttribute("src", srcifrm);
+
+    }
+    function cambiar()
+    {     
+      var sw = document.getElementById("swt").checked;
+      if(sw){
+        if ("WebSocket" in window)
+          {
+            var ws1 = new WebSocket("ws://"+ip+"/on");           
+            ws1.onclose = function(){ };
+            var ws = new WebSocket("ws://"+ip);
+            ws.onopen = function () { };
+            ws.onclose = function(){};          
+            llenariframe("http://"+ip);
+            autoEstado(false,false);   
+          } 
+      }else{
+        if ("WebSocket" in window)
+          {
+            var ws = new WebSocket("ws://"+ip+"/off");
+            ws.onmessage = function (evt){ };
+            ws.onclose = function(evt){ console.log(evt);};
+            llenariframe(" ");
+            autoEstado(false,true);
+          }
+      }
+    }
+    function cambiarAuto()
+    {
+      var sw = document.getElementById("swtauto").checked;
+      if(sw){        
+        if ("WebSocket" in window)
+          {
+            var ws = new WebSocket("ws://"+ip+"/auto");            
+            ws.onclose = function(evt){console.log(evt);};
+            llenariframe(" ");
+          }    
+      }else{
+        console.log("auto off")
+        if ("WebSocket" in window)
+          {
+            var ws1 = new WebSocket("ws://"+ip+"/off");           
+            ws1.onclose = function(){ };
+            var ws2 = new WebSocket("ws://"+ip+"/on");           
+            ws2.onclose = function(){ };
+            var ws3 = new WebSocket("ws://"+ip+"/");
+            ws3.onclose = function(){ };
+            llenariframe("http://"+ip+"/");  
+          } 
+      } 
+
+    }
+  </script>
+
+   
+</head>
+<body onload="loadDoc()">
+<div id="mserror"> </div>
+
+</body>
+</html> 
