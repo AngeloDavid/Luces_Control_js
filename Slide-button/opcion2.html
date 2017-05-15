@@ -6,13 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="radio.css">	
 </head>
 <body class="fila1">
+<div id="Mensaje" class="row">
+	
+</div>
 <div class="row" >
 	<div class="col">
 		<div class="toggle-container">
 		<div class="toggle-false-msg">++</div>
 		<div class="range-field " style=" width:60px">
-		    <input type="range" name="points" onchange="togglebutton(this);" 
-		        min="1" class="" max="3" value="2"> 
+		    <input id="btn_opciones" type="range" name="points" onchange="togglebutton(this);"
+		        min="1" class="" max="3" value="2" disabled>
 		</div>
 		<div class="toggle-neutral-msg">off</div>
 		<div class="toggle-true-msg">--</div>
@@ -20,28 +23,26 @@
 	</div>	
 </div>
 <div class="row">
-	<button id="btn_Elegir" onclick="elegir_Boton(this)" value="-1" >Todos</button>		
+	<button id="btn_Elegir"  onclick="elegir_Boton(this)" value="-1" >Todos</button>
 </div>
 <div class="row">
 		<div class="col opcion">
-			<input type="radio" id="f-option" name="selector" value="0" onchange="elegir_Boton(this)">
-		    <label for="f-option">Cuarto 1</label>
-		    <div class="check"></div>	
+			<input type="radio" id="option1" name="selector" value="0" onchange="elegir_Boton(this)">
+		    <label for="option1"><div class="check"><div class="inside"></div></div>	</label>
 		</div>
 	    <div class="col opcion">
-	    	<input type="radio" id="s-option" name="selector" value="1" onchange="elegir_Boton(this)">
-		    <label for="s-option">Cuarto 2</label>
-		    <div class="check"><div class="inside"></div></div>	
+	    	<input type="radio" id="option2" name="selector" value="1" onchange="elegir_Boton(this)">
+		    <label for="option2"><div class="check"><div class="inside"></div></div>	</label>
+
 	    </div>
 	    <div class="col opcion">
-	    	<input type="radio" id="t-option" name="selector" value="2" onchange="elegir_Boton(this)">
-		    <label for="t-option">Cuarto 3</label>
-		    <div class="check"><div class="inside"></div></div>	
+	    	<input type="radio" id="option3" name="selector" value="2" onchange="elegir_Boton(this)">
+		    <label for="option3"><div class="check"><div class="inside"></div></div></label>
 		</div>
 		<div class="col opcion">
-	    	<input type="radio" id="n-option" name="selector" value="3" onchange="elegir_Boton(this)">
-		    <label for="n-option">Cuarto 4</label>
-		    <div class="check"><div class="inside"></div></div>	
+	    	<input type="radio" id="option4" name="selector" value="3" onchange="elegir_Boton(this)">
+		    <label for="option4"><div class="check"><div class="inside"></div></div></label>
+
 		</div>
 </div>
 <script type="text/javascript" src="botones.js"></script>

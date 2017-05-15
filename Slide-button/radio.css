@@ -3,9 +3,31 @@
 body, html{
   height: 100%;
   background: #222222;
-	font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
-
+#Mensaje{
+  font-weight: bold;
+  font-size: large;
+  color: white;
+  padding-top: 2%;
+  text-transform: uppercase;
+}
+#btn_Elegir{
+  background: transparent;
+  border: 5px solid #AAAAAA;
+  font-weight: bold;
+  padding: 1%;
+  color: #aaaaaa;
+}
+#btn_Elegir:hover{
+  color: white;
+  border-color:white;
+  cursor: pointer;
+}
+.activo{
+  color: #0DFF92 !important;
+  border: 5px solid #0DFF92 !important;
+}
 .container{
   display: block;
   position: relative;
@@ -52,11 +74,13 @@ h2 {
   -webkit-transition: all 0.25s linear;
 }
 
+
+
 .opcion:hover label{
 	color: #FFFFFF;
 }
 
-.opcion .check{
+.opcion label .check{
   display: block;
   position: absolute;
   border: 5px solid #AAAAAA;
@@ -70,16 +94,18 @@ h2 {
 	-webkit-transition: border .25s linear;
 }
 
+
+
 @media screen and (max-width: 480px) {
   .opcion{
     width: 45%;
   }
 }
-.opcion:hover .check {
+.opcion:hover label .check {
   border: 5px solid #FFFFFF;
 }
 
-.opcion .check::before {
+.opcion label .check::before {
   display: block;
   position: absolute;
 	content: '';
@@ -93,11 +119,11 @@ h2 {
 	-webkit-transition: background 0.25s linear;
 }
 
-input[type=radio]:checked ~ .check {
+input[type=radio]:checked ~ label .check {
   border: 5px solid #0DFF92;
 }
 
-input[type=radio]:checked ~ .check::before{
+input[type=radio]:checked ~ label .check::before{
   background: #0DFF92;
 }
 
