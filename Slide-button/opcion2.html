@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>opcion2</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">	
+	<link rel="stylesheet" type="text/css" href="radio.css">	
+</head>
+<body class="fila1">
+<div class="row" >
+	<div class="col">
+		<div class="toggle-container">
+		<div class="toggle-false-msg">++</div>
+		<div class="range-field " style=" width:60px">
+		    <input type="range" name="points" onchange="togglebutton(this);" 
+		        min="1" class="" max="3" value="2"> 
+		</div>
+		<div class="toggle-neutral-msg">off</div>
+		<div class="toggle-true-msg">--</div>
+		</div>		
+	</div>	
+</div>
+<div class="row">
+	<button id="btn_Elegir" onclick="elegir_Boton(this)" value="-1" >Todos</button>		
+</div>
+<div class="row">
+		<div class="col opcion">
+			<input type="radio" id="f-option" name="selector" value="0" onchange="elegir_Boton(this)">
+		    <label for="f-option">Cuarto 1</label>
+		    <div class="check"></div>	
+		</div>
+	    <div class="col opcion">
+	    	<input type="radio" id="s-option" name="selector" value="1" onchange="elegir_Boton(this)">
+		    <label for="s-option">Cuarto 2</label>
+		    <div class="check"><div class="inside"></div></div>	
+	    </div>
+	    <div class="col opcion">
+	    	<input type="radio" id="t-option" name="selector" value="2" onchange="elegir_Boton(this)">
+		    <label for="t-option">Cuarto 3</label>
+		    <div class="check"><div class="inside"></div></div>	
+		</div>
+		<div class="col opcion">
+	    	<input type="radio" id="n-option" name="selector" value="3" onchange="elegir_Boton(this)">
+		    <label for="n-option">Cuarto 4</label>
+		    <div class="check"><div class="inside"></div></div>	
+		</div>
+</div>
+<script type="text/javascript" src="botones.js"></script>
+</body>
+</html>
