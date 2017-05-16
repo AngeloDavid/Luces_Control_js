@@ -1,4 +1,4 @@
-var ips=[['192.168.100.101','Cuarto 1'],
+var ips=[['192.168.1.188','Cuarto 1'],
     ['192.168.100.102','Cuarto 2'],
     ['192.168.100.103','Cuarto 3'],
     ['192.168.100.104','Cuarto 4']];
@@ -9,10 +9,6 @@ function elegir_Boton(boton) {
 	if(ipActual==-1){
 	    document.getElementById("Mensaje").innerText="Todos" ;
         document.getElementById("btn_Elegir").classList.add("activo");
-        for (i=0;i<ips.length;i++){
-            console.log(document.getElementById("option"+i));
-        }
-
     }else{
         document.getElementById("Mensaje").innerText=ips[ipActual][1];
         document.getElementById("btn_Elegir").classList.remove("activo");
@@ -22,12 +18,17 @@ function elegir_Boton(boton) {
 function boton_Elegido(range,ip) {
 	var val = range.value;    
 	console.log(ipActual);
+    if ("WebSocket" in window){
+        var ws1 = new WebSocket("ws://"+ips[ip][0]+"/off");
+        ws1.onclose = function(){ };
+    }
     if (val == 1) {
         range.className = "rangeFalse";
         if ("WebSocket" in window){
             var ws1 = new WebSocket("ws://"+ips[ip][0]+"/mas");
             ws1.onclose = function(){ };
-        }        
+        }
+
         
     } else if (val == 2) {
         //change color of slider background
@@ -60,6 +61,43 @@ function Control_todos(range) {
 	for (var i = 0; i <= ips.length; i++) {
 		boton_Elegido(range,i);
 	}
+}
+
+function  compEstado(ipid) {
+    var comp=false;
+    var xhttp = new XMLHttpRequest();
+    var est;
+    var ipbutton =ips[ipid][0];
+    var idbutton = "option"+(ipid+1);
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById(idbutton).removeAttribute("disabled");
+            document.getElementById("option_C"+(ipid+1)).classList.remove("disabled");
+            xmlDoc=this.responseXML;
+            x=xmlDoc.getElementsByTagName("LUZ");
+            est=x[0].childNodes[0].nodeValue;
+            var swt =document.getElementById(idbutton);
+            swt.checked = est==0?false:true;
+            comp=true;
+        }
+        if (this.readyState == 4 && this.status == 0) {
+            var swt =document.getElementById(idbutton);
+            swt.disabled=true;
+            console.log(idbutton);
+            var slide = document.getElementById("option_C"+(ipid+1));
+            slide.className+=" disabled";
+            comp=false;
+        }
+    };
+    xhttp.open("GET", "http://"+ipbutton+"/status", true);
+    xhttp.send();
+    return comp;
+}
+
+function loadMain() {
+    for (i =0;i<ips.length;i++){
+        console.log(compEstado(i));
+    }
 }
 
 

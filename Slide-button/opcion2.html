@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="estilo.css">	
 	<link rel="stylesheet" type="text/css" href="radio.css">	
 </head>
-<body class="fila1">
+<body class="fila1" onload="loadMain()">
 <div id="Mensaje" class="row">
 	
 </div>
@@ -24,25 +24,28 @@
 </div>
 <div class="row">
 	<button id="btn_Elegir"  onclick="elegir_Boton(this)" value="-1" >Todos</button>
+	<!--<div class="col opcion">-->
+	<!--<input type="radio" id="option5" name="selector" value="-1" onchange="elegir_Boton(this)">-->
+	<!--<label for="option5"><div class="check"><div class="inside"></div></div></label>-->
+	<!--</div>-->
 </div>
 <div class="row">
 		<div class="col opcion">
-			<input type="radio" id="option1" name="selector" value="0" onchange="elegir_Boton(this)">
-		    <label for="option1"><div class="check"><div class="inside"></div></div>	</label>
+			<input type="radio" id="option1" name="selector" value="0" onchange="elegir_Boton(this)" >
+		    <label for="option1"><div id="option_C1"  class="check disabled"><div class="inside"></div></div>	</label>
 		</div>
 	    <div class="col opcion">
 	    	<input type="radio" id="option2" name="selector" value="1" onchange="elegir_Boton(this)">
-		    <label for="option2"><div class="check"><div class="inside"></div></div>	</label>
+		    <label for="option2"><div id="option_C2" class="check disabled"><div class="inside"></div></div>	</label>
 
 	    </div>
 	    <div class="col opcion">
 	    	<input type="radio" id="option3" name="selector" value="2" onchange="elegir_Boton(this)">
-		    <label for="option3"><div class="check"><div class="inside"></div></div></label>
+		    <label for="option3" ><div id="option_C3" class="check disabled"><div class="inside"></div></div></label>
 		</div>
 		<div class="col opcion">
 	    	<input type="radio" id="option4" name="selector" value="3" onchange="elegir_Boton(this)">
-		    <label for="option4"><div class="check"><div class="inside"></div></div></label>
-
+		    <label for="option4"><div id="option_C4" class="check disabled"><div class="inside"></div></div></label>
 		</div>
 </div>
 <script type="text/javascript" src="botones.js"></script>

@@ -130,3 +130,6 @@ input[type=radio]:checked ~ label .check::before{
 input[type=radio]:checked ~ label{
   color: #0DFF92;
 }
+.disabled {
+  cursor: not-allowed !important;
+}
