@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Persiana 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onload="loadMain()" onunload="unloadMain()">
+<h3>Persianas</h3>
+<hr>
+<div class="color">
+    <div class="content">
+        <div class="titulo">
+            <h3>Comedor</h3>
+        </div>
+        <div class="switch disabled" id="buton0">
+
+            <input  id="option1" type="range"  min="1" max="3" value="2" name="points"
+                   onchange="togglebutton(this,0);" disabled>
+            <div class="valores">
+                <h2>+</h2>
+                <h2>OFF</h2>
+                <h2>-</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<hr>
+<div class="color">
+    <div class="content">
+        <div class="titulo">
+            <h3>Sala</h3>
+        </div>
+        <div class="switch disabled" id="buton1">
+            <input id="option2" type="range"  min="1" max="3" value="2" name="points"
+                   onchange="togglebutton(this,1);" disabled>
+
+            <div class="valores">
+                <h2>+</h2>
+                <h2>OFF</h2>
+                <h2>-</h2>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<hr>
+<div class="color">
+    <div class="content">
+        <div class="titulo">
+            <h3>Techo Sala</h3>
+        </div>
+        <div class="switch disabled" id="buton2">
+            <input id="option3"type="range"  min="1" max="3" value="2" name="points"
+                   onchange="togglebutton(this,2);" disabled>
+            <div class="valores">
+                <h2>+</h2>
+                <h2>OFF</h2>
+                <h2>-</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

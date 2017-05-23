@@ -1,0 +1,151 @@
+h3{
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 200%;
+    font-weight: 100;
+    text-align: center;
+
+}
+
+h2{
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 100%;
+    font-weight: 100;
+    text-align: center;
+    margin: 0;
+    margin-left: 18px;
+}
+.valores{
+    margin: 0;
+    display: flex;
+    margin-left: 33%;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.titulo{
+    width: 50%;
+}
+.titulo h3{
+    text-align: justify;
+    margin: 0 3%;
+}
+.switch{
+    width: 50%;
+}
+.switch input{
+    margin-left: 35%;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 50%;
+    border-radius: 40px;
+    background: #FF5D44;
+    outline: none;
+
+ }
+
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+
+}
+
+.mas::-webkit-slider-runnable-track {
+    background: #8CE196;
+    border-radius: 40px;
+}
+.off::-webkit-slider-runnable-track {
+    border-radius: 40px;
+    background: #FF5D44;
+}
+.menos::-webkit-slider-runnable-track {
+    border-radius: 40px;
+    background: #fff81c;
+}
+.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+@media screen and (max-width: 990px){
+
+    .valores{
+        margin-left: 32%;
+    }
+}
+@media screen and (max-width: 600px){
+
+    .valores{
+        margin-left: 31%;
+    }
+}
+@media screen and (max-width: 450px){
+    .switch input{
+        margin-left: 28%;
+    }
+    .valores{
+        margin-left: 23%;
+    }
+    h3{
+        font-size: 200%;
+
+    }
+}
+@media screen and (max-width: 375px){
+    .switch input{
+        margin-left: 30%;
+    }
+    .valores{
+        margin-left: 22%;
+    }
+    h3{
+        font-size: 200%;
+
+    }
+}
+@media screen and (max-width: 350px){
+    .switch input{
+        margin-left: 28%;
+    }
+    .valores{
+        margin-left: 21%;
+    }
+    h3{
+        font-size: 190%;
+
+    }
+}
+@media screen and (max-width: 320px){
+    .switch input{
+        margin-left: 25%;
+    }
+    .valores{
+        margin-left: 18%;
+    }
+    h3{
+        font-size: 150%;
+    }
+}
+@media screen and (max-width: 280px){
+    .switch input{
+        margin-left: 22%;
+    }
+    .valores{
+        margin-left: 14%;
+    }
+    h3{
+        font-size: 150%;
+
+    }
+}
