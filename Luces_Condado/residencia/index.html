@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Oficinas</title>
+    <title>Sala Ventana</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body onload="loadDoc();">
-    <div class="colores1">
+    <div class="parte">
         <div class="titulo">
-            <h2>Oficina 1</h2>
+            <h2>Centrales</h2>
         </div>
         <div class="boton">
-            <label class="switch">
-                <input id="swt1" type="checkbox" onchange="cambiar('swt1',0)" >
+            <label class="switch ">
+                <input id="swt1" type="checkbox" onchange="cambiar('swt1',0)">
                 <div id="slide1" class="slider round">
                     <h3 class = "h3ON">ON</h3>
                     <h3 class = 'h3OFF'>OFF</h3>
@@ -22,9 +22,10 @@
         </div>
 
     </div>
-    <div class="colores2">
+    <hr>
+    <div class="parte">
         <div class="titulo">
-            <h2>Oficina 2</h2>
+            <h2>Laterales</h2>
         </div>
         <div class="boton">
             <label class="switch">
@@ -37,9 +38,10 @@
         </div>
 
     </div>
-    <div class="colores3">
+    <hr>
+    <div class="parte">
         <div class="titulo">
-            <h2>Oficina 3</h2>
+            <h2>Cuadro</h2>
         </div>
         <div class="boton">
             <label class="switch">
@@ -52,9 +54,10 @@
         </div>
 
     </div>
-    <div class="colores1">
+    <hr>
+    <div class="parte">
         <div class="titulo">
-            <h2>Sala de Reuniones</h2>
+            <h2>Tira Led</h2>
         </div>
         <div class="boton">
             <label class="switch">
@@ -67,36 +70,7 @@
         </div>
 
     </div>
-    <div class="colores2">
-        <div class="titulo">
-            <h2>Punto de Venta</h2>
-        </div>
-        <div class="boton">
-            <label class="switch">
-                <input id="swt5" type="checkbox" onchange="cambiar('swt5',4)" disabled>
-                <div id="slide5" class="slider round">
-                    <h3 class = "h3ON">ON</h3>
-                    <h3 class = 'h3OFF'>OFF</h3>
-                </div>
-            </label>
-        </div>
 
-    </div>
-    <div class="colores3">
-        <div class="titulo">
-            <h2>Inmobiliaria</h2>
-        </div>
-        <div class="boton">
-            <label class="switch">
-                <input id="swt6" type="checkbox" onchange="cambiar('swt6',5)" disabled>
-                <div id="slide6" class="slider round">
-                    <h3 class = "h3ON">ON</h3>
-                    <h3 class = 'h3OFF'>OFF</h3>
-                </div>
-            </label>
-        </div>
-
-    </div>
 <script src="codigo.js"></script>
 
 </body>

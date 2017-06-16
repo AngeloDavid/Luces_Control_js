@@ -1,4 +1,4 @@
-var ips=['192.168.100.101',
+var ips=['192.168.1.188',
     '192.168.100.102'];
 
 function togglebutton(range,ip) {
